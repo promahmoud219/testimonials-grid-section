@@ -11,18 +11,80 @@
     box-sizing: border-box;
 }
 
-main{
+body{
     background: var(--color-background);
 }
 .cards-wrapper{
     width: min(calc(100% - 2rem), $card-mobile-width);
     margin-inline: auto;
-    margin-block: 100px;
-    // margin-bottom: 200px;
+    margin-block: 100px; 
     display: grid;
-    grid-template-columns: 5fr;
+    grid-template-columns: 1fr;
     gap: var(--spacing-400);
     color: var(--color-white);
+    
+    @media (min-width: $breakpoint-tablet) {
+        
+        width: min(calc(100% - 2rem), $card-tablet-width);
+        
+        & .testimonial-card--daniel {
+            grid-area: daniel;
+        }
+        
+        & .testimonial-card--jonathan {
+            grid-area: jonathan;
+        }
+
+        & .testimonial-card--jeanette {
+            grid-area: jeanette;
+        }
+
+        & .testimonial-card--patrick {
+            grid-area: patrick;
+        }
+        
+        & .testimonial-card--kira {
+            grid-area: kira;
+        } 
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "daniel daniel"
+        "jonathan jeanette"
+        "patrick patrick"
+        "kira kira"
+        ;
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+        
+        width: min(calc(100% - 2rem), $card-desktop-width);
+        
+        // & .testimonial-card--daniel {
+        //     grid-area: daniel;
+        // }
+        
+        // & .testimonial-card--jonathan {
+        //     grid-area: jonathan;
+        // }
+
+        // & .testimonial-card--jeanette {
+        //     grid-area: jeanette;
+        // }
+
+        // & .testimonial-card--patrick {
+        //     grid-area: patrick;
+        // }
+        
+        // & .testimonial-card--kira {
+        //     grid-area: kira;
+        // } 
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: 
+        "daniel daniel jonathan kira"
+        "jeanette patrick patrick kira"
+        ;
+    }
+
 
     .testimonial-card{ 
         padding: var(--spacing-400);
@@ -59,7 +121,6 @@ main{
                     z-index: -1;
                 }
             }
-            // grid-area: daniel;
         }
 
         &--jonathan {
@@ -74,14 +135,8 @@ main{
             .testimonial-card__quote {
                 color: var(--color-grey-100);
             }
-    
-            // grid-area: jonathan;
+
         }
-
-        // &--jeanette {
-        //     // grid-area: jeanette;
-        // }
-
         &--light {
             background: var(--color-white);
             
@@ -97,8 +152,7 @@ main{
         }
 
         &--patrick {
-            background-color: var(--color-dark-blue);
-            // grid-area: patrick;
+            background-color: var(--color-dark-blue); 
 
             .testimonial-card__name,
             .testimonial-card__status {

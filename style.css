@@ -28,7 +28,7 @@
           box-sizing: border-box;
 }
 
-main {
+body {
   background: var(--color-background);
 }
 
@@ -38,10 +38,92 @@ main {
   margin-block: 100px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 5fr;
-  grid-template-columns: 5fr;
+  -ms-grid-columns: 1fr;
+  grid-template-columns: 1fr;
   gap: var(--spacing-400);
   color: var(--color-white);
+}
+@media (min-width: 48rem) {
+  .cards-wrapper {
+    width: min(100% - 2rem, 40.4375rem);
+  }
+  .cards-wrapper .testimonial-card--daniel {
+    grid-area: daniel;
+  }
+  .cards-wrapper .testimonial-card--jonathan {
+    grid-area: jonathan;
+  }
+  .cards-wrapper .testimonial-card--jeanette {
+    grid-area: jeanette;
+  }
+  .cards-wrapper .testimonial-card--patrick {
+    grid-area: patrick;
+  }
+  .cards-wrapper .testimonial-card--kira {
+    grid-area: kira;
+  }
+  .cards-wrapper {
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+        grid-template-areas: "daniel daniel" "jonathan jeanette" "patrick patrick" "kira kira";
+  }
+}
+@media (min-width: 48rem) {
+  .cards-wrapper .testimonial-card--daniel {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+  }
+  .cards-wrapper .testimonial-card--jonathan {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+  }
+  .cards-wrapper .testimonial-card--jeanette {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+  }
+  .cards-wrapper .testimonial-card--patrick {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+  }
+  .cards-wrapper .testimonial-card--kira {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+  }
+}
+@media (min-width: 90rem) {
+  .cards-wrapper {
+    width: min(100% - 2rem, 69.625rem);
+    -ms-grid-columns: (1fr)[4];
+    grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: "daniel daniel jonathan kira" "jeanette patrick patrick kira";
+  }
+  .cards-wrapper .testimonial-card--daniel {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+  }
+  .cards-wrapper .testimonial-card--jonathan {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+  }
+  .cards-wrapper .testimonial-card--jeanette {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+  }
+  .cards-wrapper .testimonial-card--patrick {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 2;
+  }
+  .cards-wrapper .testimonial-card--kira {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 4;
+    -ms-grid-column-span: 1;
+  }
 }
 .cards-wrapper .testimonial-card {
   padding: var(--spacing-400);
