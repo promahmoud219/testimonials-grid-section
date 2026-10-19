@@ -159,11 +159,16 @@ body {
   .cards-wrapper .testimonial-card--daniel .testimonial-card__quotation-mark {
     display: block;
     position: absolute;
-    top: var(--spacing-200);
-    right: var(--spacing-400);
-    width: 104px;
-    height: 102px;
+    top: 0px;
+    right: calc(4 * var(--spacing-500));
+    width: 110px;
+    height: 110px;
     z-index: -1;
+  }
+}
+@media (min-width: 90rem) {
+  .cards-wrapper .testimonial-card--daniel .testimonial-card__quotation-mark {
+    right: calc(1.25 * var(--spacing-500));
   }
 }
 .cards-wrapper .testimonial-card--jonathan {
@@ -221,7 +226,7 @@ body {
 .cards-wrapper .testimonial-card header .testimonial-card__avatar--accent {
   border: 2px solid var(--color-purple-300);
 }
-.cards-wrapper .testimonial-card header .testimonial-card__profile {
+.cards-wrapper .testimonial-card header .testonial-card__profile {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -231,14 +236,14 @@ body {
           flex-direction: column;
   gap: var(--spacing-50);
 }
-.cards-wrapper .testimonial-card header .testimonial-card__profile .testimonial-card__name {
+.cards-wrapper .testimonial-card header .testonial-card__profile .testimonial-card__name {
   font-family: "Barlow Semi Condensed", sans-serif;
   font-size: 0.8125rem;
   line-height: 1.1;
   letter-spacing: 0;
   font-weight: 500;
 }
-.cards-wrapper .testimonial-card header .testimonial-card__profile .testimonial-card__status {
+.cards-wrapper .testimonial-card header .testonial-card__profile .testimonial-card__status {
   font-family: "Barlow Semi Condensed", sans-serif;
   font-size: 0.6875rem;
   line-height: 1.1;
