@@ -1,0 +1,157 @@
+@use "spacing" as *;
+@use "typography" as *;
+@use "colors" as *;
+@use "dimensions" as *;
+@use "breakpoints" as *;
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    background: var(--color-background);
+}
+.cards-wrapper{
+    width: min(calc(100% - 2rem), $card-mobile-width);
+    margin-inline: auto;
+    margin-block: 100px;
+    // margin-bottom: 200px;
+    display: grid;
+    grid-template-columns: 5fr;
+    gap: var(--spacing-400);
+    color: var(--color-white);
+
+    .testimonial-card{ 
+        padding: var(--spacing-400);
+        border-radius: var(--spacing-100);
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-200);
+        box-shadow: 60px 60px 30px 10px rgba(128, 128, 128, 0.233) ;
+        
+        &--daniel {
+            z-index: 1;
+            position: relative;
+            background-color: var(--color-purple-500);
+            .testimonial-card__name,
+            .testimonial-card__title {
+                color: var(--color-white);
+            }
+
+            .testimonial-card__status,
+            .testimonial-card__quote {
+                color: var(--color-purple-50);
+            }
+            
+            .testimonial-card__quotation-mark{
+                display: none;
+                
+                @media (min-width: $breakpoint-tablet) {
+                    display: block;
+                    position: absolute;
+                    top: var(--spacing-200);
+                    right: var(--spacing-400);
+                    width: 104px;
+                    height: 102px;
+                    z-index: -1;
+                }
+            }
+            // grid-area: daniel;
+        }
+
+        &--jonathan {
+            background-color: var(--color-grey-500);
+    
+            .testimonial-card__name,
+            .testimonial-card__title {
+                color: var(--color-white);
+            }
+
+            .testimonial-card__status,
+            .testimonial-card__quote {
+                color: var(--color-grey-100);
+            }
+    
+            // grid-area: jonathan;
+        }
+
+        // &--jeanette {
+        //     // grid-area: jeanette;
+        // }
+
+        &--light {
+            background: var(--color-white);
+            
+            .testimonial-card__name,
+            .testimonial-card__title {
+                color: var(--color-grey-500);
+            }
+
+            .testimonial-card__status,
+            .testimonial-card__quote {
+                color: var(--color-grey-400);
+            }
+        }
+
+        &--patrick {
+            background-color: var(--color-dark-blue);
+            // grid-area: patrick;
+
+            .testimonial-card__name,
+            .testimonial-card__status {
+                color: var(--color-white);
+            }
+
+            .testimonial-card__title {
+                color: var(--color-grey-200);
+            }
+
+            .testimonial-card__quote {
+                color: var(--color-grey-100);
+            }
+        }
+
+
+        header{ 
+            display: inline-flex;
+            align-items: center;
+            justify-content: start;
+            gap: 17px;
+
+            .testimonial-card__avatar{
+                width: 28px;
+                height: 28px;
+                border-radius: 50%;
+                &--accent{
+                    border: 2px solid var(--color-purple-300);
+                }
+            }
+
+            .testimonial-card__profile{
+                display: flex;
+                flex-direction: column;
+                gap: var(--spacing-50);
+
+                .testimonial-card__name{
+                    @include text-preset(2);
+                }
+                
+                .testimonial-card__status{
+                    @include text-preset(4); 
+                }
+            } 
+        }
+        
+        .testimonial-card__title{
+            @include text-preset(1); 
+
+        }
+
+        .testimonial-card__quote{
+            @include text-preset(3); 
+        }
+    }
+}
