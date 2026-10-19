@@ -14,8 +14,13 @@
 body{
     background: var(--color-background);
 }
+
+.page-title{
+    display: none;
+}
+
 .cards-wrapper{
-    width: min(calc(100% - 2rem), $card-mobile-width);
+    width: max(calc(100% - 2rem), $card-mobile-width);
     margin-inline: auto;
     margin-block: 100px; 
     display: grid;
@@ -23,9 +28,13 @@ body{
     gap: var(--spacing-400);
     color: var(--color-white);
     
+    @media (max-width: $breakpoint-mobile) {
+        width: min(calc(100% - 2rem), $card-mobile-width);
+    }
+
     @media (min-width: $breakpoint-tablet) {
         
-        width: min(calc(100% - 2rem), $card-tablet-width);
+        width: max(calc(100% - 2rem), $card-tablet-width);
         
         & .testimonial-card--daniel {
             grid-area: daniel;
@@ -55,10 +64,8 @@ body{
         ;
     }
 
-    @media (min-width: $breakpoint-desktop) {
-        
-        width: min(calc(100% - 2rem), $card-desktop-width);
-        
+    @media (min-width: $breakpoint-desktop) { 
+        width: max(calc(100% - 2rem), $card-desktop-width); 
         grid-template-columns: repeat(4, 1fr);
         grid-template-areas: 
         "daniel daniel jonathan kira"
@@ -168,7 +175,7 @@ body{
                 }
             }
 
-            .testonial-card__profile{
+            .testmonial-card__profile{
                 display: flex;
                 flex-direction: column;
                 gap: var(--spacing-50);
@@ -184,8 +191,7 @@ body{
         }
         
         .testimonial-card__title{
-            @include text-preset(1); 
-
+            @include text-preset(1);  
         }
 
         .testimonial-card__quote{

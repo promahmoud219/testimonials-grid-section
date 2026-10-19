@@ -32,8 +32,12 @@ body {
   background: var(--color-background);
 }
 
+.page-title {
+  display: none;
+}
+
 .cards-wrapper {
-  width: min(100% - 2rem, 19.0625rem);
+  width: max(100% - 2rem, 19.0625rem);
   margin-inline: auto;
   margin-block: 100px;
   display: -ms-grid;
@@ -43,9 +47,14 @@ body {
   gap: var(--spacing-400);
   color: var(--color-white);
 }
+@media (max-width: 23.4375rem) {
+  .cards-wrapper {
+    width: min(100% - 2rem, 19.0625rem);
+  }
+}
 @media (min-width: 48rem) {
   .cards-wrapper {
-    width: min(100% - 2rem, 40.4375rem);
+    width: max(100% - 2rem, 40.4375rem);
   }
   .cards-wrapper .testimonial-card--daniel {
     grid-area: daniel;
@@ -95,7 +104,7 @@ body {
 }
 @media (min-width: 90rem) {
   .cards-wrapper {
-    width: min(100% - 2rem, 69.625rem);
+    width: max(100% - 2rem, 69.625rem);
     -ms-grid-columns: (1fr)[4];
     grid-template-columns: repeat(4, 1fr);
         grid-template-areas: "daniel daniel jonathan kira" "jeanette patrick patrick kira";
@@ -226,7 +235,7 @@ body {
 .cards-wrapper .testimonial-card header .testimonial-card__avatar--accent {
   border: 2px solid var(--color-purple-300);
 }
-.cards-wrapper .testimonial-card header .testonial-card__profile {
+.cards-wrapper .testimonial-card header .testimonial-card__profile {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -236,19 +245,19 @@ body {
           flex-direction: column;
   gap: var(--spacing-50);
 }
-.cards-wrapper .testimonial-card header .testonial-card__profile .testimonial-card__name {
+.cards-wrapper .testimonial-card header .testimonial-card__profile .testimonial-card__name {
   font-family: "Barlow Semi Condensed", sans-serif;
   font-size: 0.8125rem;
   line-height: 1.1;
   letter-spacing: 0;
-  font-weight: 500;
+  font-weight: 400;
 }
-.cards-wrapper .testimonial-card header .testonial-card__profile .testimonial-card__status {
+.cards-wrapper .testimonial-card header .testimonial-card__profile .testimonial-card__status {
   font-family: "Barlow Semi Condensed", sans-serif;
   font-size: 0.6875rem;
   line-height: 1.1;
   letter-spacing: 0;
-  font-weight: 500;
+  font-weight: 400;
 }
 .cards-wrapper .testimonial-card .testimonial-card__title {
   font-family: "Barlow Semi Condensed", sans-serif;
@@ -262,5 +271,5 @@ body {
   font-size: 0.8125rem;
   line-height: 1.4;
   letter-spacing: 0;
-  font-weight: 500;
+  font-weight: 400;
 }
