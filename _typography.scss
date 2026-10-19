@@ -1,0 +1,51 @@
+@use "sass:map";
+
+$font-barlow: "Barlow Semi Condensed", sans-serif;
+
+$text-presets: (
+    1: (
+        font-family: $font-barlow,
+        font-size: 1.25rem,
+        line-height: 1.2,
+        letter-spacing: 0,
+        font-weight: 600
+    ),
+
+    2: (
+        font-family: $font-barlow,
+        font-size: 0.8125rem,
+        line-height: 1.1,
+        letter-spacing: 0,
+        font-weight: 500
+    ),
+
+    3: (
+        font-family: $font-barlow,
+        font-size: 0.8125rem,
+        line-height: 1.4,
+        letter-spacing: 0,
+        font-weight: 500
+    ),
+
+    4: (
+        font-family: $font-barlow,
+        font-size: 0.6875rem,
+        line-height: 1.1,
+        letter-spacing: 0,
+        font-weight: 500
+    )
+);
+
+@mixin text-preset($preset) {
+    $config: map.get($text-presets, $preset);
+
+    @if ($config == null) {
+        @error "Unknown text preset: #{$preset}";
+    }
+
+    font-family: map.get($config, font-family);
+    font-size: map.get($config, font-size);
+    line-height: map.get($config, line-height);
+    letter-spacing: map.get($config, letter-spacing);
+    font-weight: map.get($config, font-weight);
+}
